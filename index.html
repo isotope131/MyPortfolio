@@ -223,15 +223,22 @@
 
         .control {
             padding: 15px;
+            width: 50px; /* Set fixed width */
+            height: 50px; /* Set fixed height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%; /* Ensures perfect circular shape */
+            
             background-color: #333;
             color: white;
-            border-radius: 50%;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .control:hover {
             background-color: #4caf50;
+            transform: scale(1.1); /* Slight scaling effect on hover */
         }
 
         .active-btn {
