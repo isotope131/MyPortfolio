@@ -1,3 +1,4 @@
+@ -1,309 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -212,26 +213,28 @@
 
         /* Control Buttons */
         .controls {
-            padding: 15px;
-            width: 50px; /* Set fixed width */
-            height: 50px; /* Set fixed height */
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%; /* Ensures perfect circular shape */
-            
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .control {
+            padding: 15px;
             background-color: #333;
             color: white;
             border-radius: 50%;
             cursor: pointer;
             transition: background-color 0.3s;
-            transition: background-color 0.3s, transform 0.2s;
         }
 
         .control:hover {
             background-color: #4caf50;
-            transform: scale(1.1); /* Slight scaling effect on hover */
         }
+
         .active-btn {
             background-color: #4caf50;
         }
@@ -258,6 +261,8 @@
             color: white;
         }
 
+        body.dark-theme header {
+            background-color: #121212;
         body.dark-theme header,
         body.dark-theme .about,
         body.dark-theme .contact {
@@ -313,97 +318,3 @@
         <div class="main-title">
             <h2>About <span>Me</span></h2>
         </div>
-        <div class="about-container">
-            <div class="left-about">
-                <h4>Information About Me</h4>
-                <p>With over 5 years of experience in IT, I specialize in web/mobile application development, customer support, IT systems administration, and more. I'm passionate about solving complex problems and continuously learning new skills to stay ahead in this fast-paced industry.</p>
-                <div class="btn-con">
-                    <a href="https://drive.google.com/file/d/10BTf6b2AkE78cccCpUG3_vQDywqBgYpb/view?usp=sharing" class="main-btn">View Resume</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <div class="main-title">
-            <h2>Get In <span>Touch</span></h2>
-        </div>
-        <div class="contact-container">
-            <div class="left-contact">
-                <h4>Don't be shy</h4>
-                <p>Feel free to reach out if you have any questions, opportunities, or ideas you'd like to discuss. I'm always happy to connect!</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i> Location: Melbourne, Australia
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i> Email: <a href="mailto:anferneemo@gmail.com 
-">anferneemo@gmail.com 
-</a>
-                    </div>
-                </div>
-            </div>
-            <div class="right-contact">
-                <form action="mailto:" method="post" enctype="text/plain" class="contact-form">
-                    <div class="input-control">
-                        <input type="text" required placeholder="Your Name">
-                        <input type="email" required placeholder="Your Email">
-                    </div>
-                    <div class="input-control">
-                        <input type="text" required placeholder="Subject">
-                    </div>
-                    <div class="input-control">
-                        <textarea rows="6" placeholder="Message"></textarea>
-                    </div>
-                    <div class="submit-btn">
-                        <button type="submit">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Control Buttons for Navigation -->
-    <div class="controls">
-        <div class="control active-btn" data-id="home" title="Home">
-            <i class="fas fa-home"></i>
-        </div>
-        <div class="control" data-id="about" title="About Me">
-            <i class="fas fa-user"></i>
-        </div>
-        <div class="control" data-id="contact" title="Contact">
-            <i class="fas fa-envelope-open"></i>
-        </div>
-    </div>
-
-    <!-- Theme Toggle Button -->
-    <div class="theme-btn" title="Toggle Theme">
-        <i class="fas fa-adjust"></i>
-    </div>
-
-   <script>
-    // Theme Toggle Button
-    const themeButton = document.querySelector('.theme-btn');
-    const body = document.body;
-
-    // Check if dark mode was previously enabled
-    if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark-theme');
-    }
-
-    themeButton.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-
-        // Save the theme preference
-        if (body.classList.contains('dark-theme')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-    });
-</script>
-
-</body>
-</html>
-
