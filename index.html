@@ -376,22 +376,28 @@
         <i class="fas fa-adjust"></i>
     </div>
 
-    <script>
-        // Toggle Dark/Light Theme
-        const themeButton = document.querySelector('.theme-btn');
-        themeButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-        });
+   <script>
+    // Theme Toggle Button
+    const themeButton = document.querySelector('.theme-btn');
+    const body = document.body;
 
-        // Active Section Navigation
-        const controls = document.querySelectorAll('.control');
-        controls.forEach(control => {
-            control.addEventListener('click', () => {
-                document.querySelector('.active-btn').classList.remove('active-btn');
-                control.classList.add('active-btn');
-            });
-        });
-    </script>
+    // Check if dark mode was previously enabled
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-theme');
+    }
+
+    themeButton.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+
+        // Save the theme preference
+        if (body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
+
 </body>
 </html>
 
